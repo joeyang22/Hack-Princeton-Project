@@ -4,19 +4,23 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 
 public class MainActivity extends ActionBarActivity {
 
+    TextView mWelcome;
+    private User mainUser;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        String name = getIntent().getStringExtra("name");
+        mainUser = new User(name);
         setContentView(R.layout.activity_main);
-        if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, new TasksFragment())
-                    .commit();
-        }
+        mWelcome = (TextView) findViewById(R.id.welcome_text);
+        mWelcome.setText("Hello, "+mainUser.getName());
+
     }
 
 
