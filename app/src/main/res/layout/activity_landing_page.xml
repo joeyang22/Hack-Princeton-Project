@@ -1,0 +1,55 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    tools:ignore="MergeRootFrame"
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="What is your name?"
+        android:id="@+id/textView"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="233dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/name"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:hint="Name" />
+
+    <android.support.v7.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        card_view:cardBackgroundColor="#1976D2"
+        card_view:cardCornerRadius="2dp"
+        android:layout_margin="6dp"
+        card_view:cardElevation="6dp">
+
+        <TextView android:id="@+id/done_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="8.5dp"
+            android:paddingBottom="8.5dp"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:textColor="#fff"
+            android:fontFamily="sans-serif-medium"
+            android:text="NORMAL"
+            android:layout_centerHorizontal="true" />
+
+    </android.support.v7.widget.CardView>
+
+
+</RelativeLayout>
