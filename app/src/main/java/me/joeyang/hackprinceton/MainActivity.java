@@ -4,13 +4,20 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.Date;
 
 
 public class MainActivity extends ActionBarActivity {
 
     TextView mWelcome;
+    ListView mTasks;
+    ArrayList<Task> tasks = new ArrayList<Task>();
     private User mainUser;
+    private TaskAdapter mTaskAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +27,15 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
         mWelcome = (TextView) findViewById(R.id.welcome_text);
         mWelcome.setText("Hello, "+mainUser.getName());
+        Task task = new Task(new Date(), true, "Do the thing", "Aileen");
+        tasks.add(task);
+        mTaskAdapter = new TaskAdapter(this, tasks);
+
+        mTasks = (ListView) findViewById(R.id.lvTasks);
+
+        mTasks.setAdapter(mTaskAdapter);
+
+
 
     }
 
