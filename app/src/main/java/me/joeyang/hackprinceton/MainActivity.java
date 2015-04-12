@@ -1,8 +1,8 @@
 package me.joeyang.hackprinceton;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -39,7 +39,7 @@ public class MainActivity extends ActionBarActivity {
 
         mTasks = (ListView) findViewById(R.id.lvTasks);
 
-        mTasks.setAdapter(mTaskAdapter);
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.attachToListView(mTasks);
@@ -48,10 +48,8 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 if (event.getAction() == MotionEvent.ACTION_UP) {
-                    Task newTask = new Task(new Date(), true, "Do the thing", "asdf");
-                    mTaskAdapter.add(newTask);
-                    mTaskAdapter.notifyDataSetChanged();
-                    Log.v("afieowaf","sjifoaewjfioejwaiofjewaoifjewafo");
+                    Intent intent = new Intent(getApplicationContext(), AddTask.class);
+                    startActivity(intent);
 
                     return true;
                 }
@@ -63,6 +61,11 @@ public class MainActivity extends ActionBarActivity {
 
     }
 
+    @Override
+    protected void onResume(){
+        super.onResume();
+        mTasks.setAdapter(mTaskAdapter);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
