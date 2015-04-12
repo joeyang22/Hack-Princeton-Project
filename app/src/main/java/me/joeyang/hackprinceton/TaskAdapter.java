@@ -22,6 +22,12 @@ public class TaskAdapter extends ArrayAdapter<Task> {
 
     }
 
+//    @Override
+//    public void add(Task task){
+//        tasks.add(task);
+//        notifyDataSetChanged();
+//    }
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent){
         Task task = getItem(position);
